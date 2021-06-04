@@ -1,46 +1,32 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  // Where files should be sent once they are bundled
   output: {
-    filename: "scripts/main.js",
-    publicPath: "",
+    path: path.join(__dirname, "/dist"),
+    filename: "index.bundle.js",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "src/index.html",
-      minify: false,
-    }),
-  ],
+  // webpack 5 comes with devServer which loads in development mode
+  devServer: {
+    port: 3000,
+    watchContentBase: true,
+  },
+  // Rules of how webpack will take our files, complie & bundle them for the browser
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: "..",
-            },
-          },
-          "css-loader",
-          "sass-loader",
-        ],
+        test: /\.(js|jsx)$/,
+        exclude: /nodeModules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "images/[hash][ext][query]",
-        },
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-  optimization: {
-    minimizer: [new CssMinimizerPlugin()],
-  },
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
 };
