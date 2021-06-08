@@ -6,8 +6,8 @@ const PlusModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
 
   const handlePlus = (e) => {
-    // window.deep.event({ "event.type": "plus-modal-click" });
-    // window.dataLayer.push({ event: "plus-modal-click" });
+    window.deep.event({ "event.type": "plus-modal-click" });
+    window.dataLayer.push({ event: "plus-modal-click" });
     window.open(
       "https://www.rappler.com/about-plus-membership-program?utm_source=rappler_plus&utm_medium=modal&utm_campaign=plus_modal"
     );
@@ -17,13 +17,12 @@ const PlusModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleDismiss = (e) => {
-    console.log("close modal");
     if (dismissible) {
-      // window.deep.event({ "event.type": "regwall-close" });
-      // window.dataLayer.push({ event: "move-modal-close" });
+      window.deep.event({ "event.type": "regwall-close" });
+      window.dataLayer.push({ event: "move-modal-close" });
       setDisplayModal(!displayModal);
+      document.body.style.overflowY = "";
     }
-    document.body.style.overflowY = "";
   };
 
   return (

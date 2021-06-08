@@ -6,7 +6,6 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
 
   const handleLogin = (e) => {
-    console.log(dismissible);
     window.deep.event({ "event.type": "regwall-click" });
     window.dataLayer.push({ event: "register-modal-click" });
     setDisplayModal(!displayModal);
@@ -24,7 +23,6 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleSignup = (e) => {
-    console.log("signup!");
     window.dataLayer.push({ event: "register-modal-click" });
     document
       .getElementsByClassName(
@@ -34,14 +32,13 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleDismiss = (e) => {
-    console.log("close modal");
     if (dismissible) {
       window.deep.event({ "event.type": "regwall-close" });
       window.dataLayer.push({ event: "register-modal-close" });
 
       setDisplayModal(!displayModal);
+      document.body.style.overflowY = "";
     }
-    document.body.style.overflowY = "";
   };
 
   return (

@@ -17,13 +17,12 @@ const MoveModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleDismiss = (e) => {
-    console.log("close modal");
     if (dismissible) {
       window.deep.event({ "event.type": "regwall-close" });
       window.dataLayer.push({ event: "move-modal-close" });
       setDisplayModal(!displayModal);
+      document.body.style.overflowY = "";
     }
-    document.body.style.overflowY = "";
   };
 
   return (

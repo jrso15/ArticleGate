@@ -1,3 +1,3 @@
-import RapplerModal from "../Classes/RapplerModal.js";
+import RapplerModal from "./classes/RapplerModal.js";
 
 global.RapplerModal = RapplerModal;

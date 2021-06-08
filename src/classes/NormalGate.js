@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import AbstractGate from "./AbstractGate";
-import NormalModal from "../src/Components/NormalModal/NormalModal.js";
+import NormalModal from "../components/NormalModal/NormalModal.js";
 
 class NormalGate extends AbstractGate {
   constructor(container, config) {

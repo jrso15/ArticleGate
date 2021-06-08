@@ -1,24 +1,25 @@
 import React from "react";
 import ReactDom from "react-dom";
 import AbstractGate from "./AbstractGate";
-import MoveModal from "../src/Components/MoveModal/MoveModal.js";
+import PlusModal from "../components/PlusModal/PlusModal.js";
 
-class MoveGate extends AbstractGate {
+class PlusGate extends AbstractGate {
   constructor(container, config) {
     super(container, config);
   }
 
   openPlusPage() {
-    document.querySelector(".ag-plus-move").click();
+    document.querySelector(".ag-plus").click();
   }
 
   destroy() {
+    document.body.style.overflowY = "";
     document.querySelector(".ag-dismiss").click();
   }
 
   render() {
     ReactDom.render(
-      <MoveModal
+      <PlusModal
         header={this.header}
         subheader={this.subheader}
         description={this.description}
@@ -26,9 +27,9 @@ class MoveGate extends AbstractGate {
       />,
       this.container
     );
-    window.deep.event({ "event.type": "move-modal-render" });
-    window.dataLayer.push({ event: "move-modal-render" });
+    window.deep.event({ "event.type": "plus-modal-render" });
+    window.dataLayer.push({ event: "plus-modal-render" });
   }
 }
 
-export default MoveGate;
+export default PlusGate;
