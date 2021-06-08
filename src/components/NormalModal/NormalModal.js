@@ -9,7 +9,7 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
     window.deep.event({ "event.type": "regwall-click" });
     window.dataLayer.push({ event: "register-modal-click" });
     setDisplayModal(!displayModal);
-    if (this.dismissible) {
+    if (dismissible) {
       dataLayer.push({ event: "regwall-experiment-soft-click-join" });
     } else {
       dataLayer.push({ event: "regwall-experiment-hard-click-join" });
