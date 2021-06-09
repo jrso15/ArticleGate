@@ -23,7 +23,7 @@ const AbstractModal = ({
         <div className={styles.topContainer}>
           <div className={modalStyles.iconContainer}>
             <a href="https://www.rappler.com">
-              <img src={logo} />
+              <img src={logo} className={styles.logoImage} />
             </a>
           </div>
 
