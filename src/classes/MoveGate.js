@@ -27,7 +27,7 @@ class MoveGate extends AbstractGate {
       this.container
     );
     window.deep.event({ "event.type": "move-modal-render" });
-    window.dataLayer.push({ event: "move-modal-render" });
+    window.dataLayer.push({ "event" : "move-modal-render" });
   }
 }
 
