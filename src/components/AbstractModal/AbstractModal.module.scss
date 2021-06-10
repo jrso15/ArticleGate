@@ -1,0 +1,135 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 1500px;
+}
+
+.modalContainer {
+  position: fixed;
+  bottom: -150vh;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  left: 0;
+  padding: 20px 15px 15px;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+
+  .topContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .iconContainer {
+    width: 150px;
+    height: 45px;
+    .logoImage {
+      width: 100%;
+    }
+  }
+  .close {
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    background-color: transparent;
+    border: 0;
+    font-size: 18px;
+    color: #fff;
+  }
+  .memberText {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    line-height: 21px;
+    font-family: TuskerGrotesk-6500Medium;
+    .login {
+      text-decoration: underline;
+    }
+  }
+
+  .headerContainer {
+    .headerStyle {
+      margin: 10px 0px 0px;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      line-height: 50.4px;
+      font-family: TuskerGrotesk-6500Medium;
+      width: 100%;
+      display: block;
+      color: #fff;
+    }
+
+    .subHeaderStyle {
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      line-height: 50.4px;
+      font-family: TuskerGrotesk-6500Medium;
+      width: 100%;
+      display: block;
+      color: rgb(24, 33, 58);
+    }
+  }
+
+  .bodyText {
+    font-family: "Lora", serif;
+    color: #fff;
+  }
+
+  .btnWrapper {
+    margin-top: 30px;
+    display: block;
+    .button {
+      cursor: pointer;
+      margin: 0 0 12px;
+      background-color: rgb(24, 33, 58);
+      border-color: transparent;
+      color: #fff;
+      border: 1px solid transparent;
+      box-shadow: none;
+      display: block;
+      width: 100%;
+      height: 3em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      font-family: TuskerGrotesk-6500Medium;
+      font-size: 0.75rem;
+      -webkit-appearance: none;
+    }
+
+    .btnLearnMore {
+      cursor: pointer;
+      margin: 0 0 12px;
+      background-color: transparent;
+      border-color: transparent;
+      color: #fff;
+      border: 1px solid #000;
+      box-shadow: none;
+      display: block;
+      width: 100%;
+      height: 3em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      font-family: TuskerGrotesk-6500Medium;
+      font-size: 0.75rem;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.show {
+  bottom: 0;
+}
