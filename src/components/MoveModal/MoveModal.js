@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AbstractModal from "../AbstractModal/AbstractModal";
-import styles from "./MoveModal.module.css";
+import styles from "./MoveModal.module.scss";
 
 const MoveModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
@@ -35,16 +35,19 @@ const MoveModal = ({ header, subheader, description, dismissible }) => {
       modalStyles={styles}
       hasClose={true}
       onDismiss={handleDismiss}
+      showDismiss={dismissible}
     >
       <button className={`ag-plus-move ${styles.button}`} onClick={handlePlus}>
         be a mover
       </button>
-      <button
-        className={`ag-dismiss ${styles.btnLearnMore}`}
-        onClick={handleDismiss}
-      >
-        Maybe Next Time
-      </button>
+      {dismissible && (
+        <button
+          className={`ag-dismiss ${styles.btnLearnMore}`}
+          onClick={handleDismiss}
+        >
+          Maybe Next Time
+        </button>
+      )}
     </AbstractModal>
   );
 };

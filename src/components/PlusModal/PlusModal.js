@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AbstractModal from "../AbstractModal/AbstractModal";
-import styles from "./PlusModal.module.css";
+import styles from "./PlusModal.module.scss";
 
 const PlusModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
@@ -34,17 +34,20 @@ const PlusModal = ({ header, subheader, description, dismissible }) => {
       bodyText={description}
       modalStyles={styles}
       hasClose={true}
+      showDismiss={dismissible}
       onDismiss={handleDismiss}
     >
       <button className={`ag-plus ${styles.button}`} onClick={handlePlus}>
         Learn More
       </button>
-      <button
-        className={`ag-dismiss ${styles.btnLearnMore}`}
-        onClick={handleDismiss}
-      >
-        Maybe Next Time
-      </button>
+      {dismissible && (
+        <button
+          className={`ag-dismiss ${styles.btnLearnMore}`}
+          onClick={handleDismiss}
+        >
+          Maybe Next Time
+        </button>
+      )}
     </AbstractModal>
   );
 };

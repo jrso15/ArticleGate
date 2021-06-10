@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import AbstractModal from "../AbstractModal/AbstractModal";
-import styles from "./NormalModal.module.css";
+import styles from "./NormalModal.module.scss";
 
 const NormalModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
 
   const handleLogin = (e) => {
-    window.deep.event({ "event.type": "regwall-click" });
-    window.dataLayer.push({ event: "register-modal-click" });
+    // window.deep.event({ "event.type": "regwall-click" });
+    // window.dataLayer.push({ event: "register-modal-click" });
     setDisplayModal(!displayModal);
-    if (dismissible) {
-      dataLayer.push({ event: "regwall-experiment-soft-click-join" });
-    } else {
-      dataLayer.push({ event: "regwall-experiment-hard-click-join" });
-    }
+    // if (dismissible) {
+    //   dataLayer.push({ event: "regwall-experiment-soft-click-join" });
+    // } else {
+    //   dataLayer.push({ event: "regwall-experiment-hard-click-join" });
+    // }
 
     document
       .getElementsByClassName(
@@ -23,7 +23,7 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleSignup = (e) => {
-    window.dataLayer.push({ event: "register-modal-click" });
+    // window.dataLayer.push({ event: "register-modal-click" });
     document
       .getElementsByClassName(
         "Button-thxeg-0 StyledComponents__JoinButton-sc-11uybho-5 hZSvol"
@@ -33,8 +33,8 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
 
   const handleDismiss = (e) => {
     if (dismissible) {
-      window.deep.event({ "event.type": "regwall-close" });
-      window.dataLayer.push({ event: "register-modal-close" });
+      // window.deep.event({ "event.type": "regwall-close" });
+      // window.dataLayer.push({ event: "register-modal-close" });
 
       setDisplayModal(!displayModal);
       document.body.style.overflowY = "";
@@ -50,18 +50,21 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
       subHeader={subheader}
       bodyText={description}
       hasClose={false}
+      showDismiss={dismissible}
       onDismiss={handleDismiss}
       onLogin={handleLogin}
     >
       <button className={`ag-signup ${styles.button}`} onClick={handleSignup}>
         Join Now
       </button>
-      <button
-        className={`ag-dismiss ${styles.btnLearnMore}`}
-        onClick={handleDismiss}
-      >
-        Maybe Next Time
-      </button>
+      {dismissible && (
+        <button
+          className={`ag-dismiss ${styles.btnLearnMore}`}
+          onClick={handleDismiss}
+        >
+          Maybe Next Time
+        </button>
+      )}
     </AbstractModal>
   );
 };
