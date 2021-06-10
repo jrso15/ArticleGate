@@ -37,7 +37,7 @@ class NormalGate extends AbstractGate {
       "regwall-dismissible": this.dismissible,
     });
     window.deep.event({ "event.type": "register-modal-render" });
-    window.deep.event({ "event.type": "regwall-render" });
+    window.dataLayer.push({ "event" : "register-modal-render" });
   }
 }
 

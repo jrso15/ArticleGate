@@ -28,7 +28,7 @@ class PlusGate extends AbstractGate {
       this.container
     );
     window.deep.event({ "event.type": "plus-modal-render" });
-    window.dataLayer.push({ event: "plus-modal-render" });
+    window.dataLayer.push({ "event" : "plus-modal-render" });
   }
 }
 

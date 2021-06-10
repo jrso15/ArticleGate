@@ -7,9 +7,9 @@ const MoveModal = ({ header, subheader, description, dismissible }) => {
 
   const handlePlus = (e) => {
     window.deep.event({ "event.type": "move-modal-click" });
-    window.dataLayer.push({ event: "move-modal-click" });
+    window.dataLayer.push({ "event" : "move-modal-click" });
     window.open(
-      "https://www.rappler.com/about-plus-membership-program?utm_source=rappler_plus&utm_medium=modal&utm_campaign=plus_modal"
+      "https://www.rappler.com/about-moveph-civic-engagement?utm_source=moveph&utm_medium=modal&utm_campaign=move_modal"
     );
 
     setDisplayModal(!displayModal);
@@ -18,8 +18,8 @@ const MoveModal = ({ header, subheader, description, dismissible }) => {
 
   const handleDismiss = (e) => {
     if (dismissible) {
-      window.deep.event({ "event.type": "regwall-close" });
-      window.dataLayer.push({ event: "move-modal-close" });
+      window.deep.event({ "event.type": "move-modal-close" });
+      window.dataLayer.push({ "event" : "move-modal-close" });
       setDisplayModal(!displayModal);
       document.body.style.overflowY = "";
     }

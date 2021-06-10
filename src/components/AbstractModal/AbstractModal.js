@@ -18,7 +18,7 @@ const AbstractModal = ({
     modalStyles.modalContainer
   } ${showModal ? styles.show : ""}`;
 
-  console.log(showDismiss);
+  //console.log(showDismiss);
   return (
     <div className={modalWrapper}>
       <div className={styles.topContainer}>

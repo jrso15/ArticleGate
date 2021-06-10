@@ -6,14 +6,11 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   const [displayModal, setDisplayModal] = useState(true);
 
   const handleLogin = (e) => {
-    // window.deep.event({ "event.type": "regwall-click" });
-    // window.dataLayer.push({ event: "register-modal-click" });
-    setDisplayModal(!displayModal);
-    // if (dismissible) {
-    //   dataLayer.push({ event: "regwall-experiment-soft-click-join" });
-    // } else {
-    //   dataLayer.push({ event: "regwall-experiment-hard-click-join" });
-    // }
+    window.deep.event({ "event.type": "register-modal-click-login" });
+    window.dataLayer.push({ "event": "register-modal-click-login" });
+    if (dismissible) {
+      setDisplayModal(!displayModal);
+    }
 
     document
       .getElementsByClassName(
@@ -23,7 +20,8 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
   };
 
   const handleSignup = (e) => {
-    // window.dataLayer.push({ event: "register-modal-click" });
+    window.deep.event({ "event.type" : "register-modal-click"});
+    window.dataLayer.push({ "event" : "register-modal-click" });
     document
       .getElementsByClassName(
         "Button-thxeg-0 StyledComponents__JoinButton-sc-11uybho-5 hZSvol"
@@ -33,8 +31,8 @@ const NormalModal = ({ header, subheader, description, dismissible }) => {
 
   const handleDismiss = (e) => {
     if (dismissible) {
-      // window.deep.event({ "event.type": "regwall-close" });
-      // window.dataLayer.push({ event: "register-modal-close" });
+      window.deep.event({ "event.type": "register-modal-close" });
+      window.dataLayer.push({ "event" : "register-modal-close" });
 
       setDisplayModal(!displayModal);
       document.body.style.overflowY = "";
