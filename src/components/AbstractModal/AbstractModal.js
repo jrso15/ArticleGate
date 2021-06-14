@@ -1,4 +1,5 @@
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 import styles from "./AbstractModal.module.scss";
 
 const AbstractModal = ({
@@ -49,7 +50,7 @@ const AbstractModal = ({
         <h3 className={modalStyles.headerStyle}>{headerText}</h3>
         <h3 className={modalStyles.subHeaderStyle}>{subHeader}</h3>
       </div>
-      <p className={styles.bodyText}>{bodyText}</p>
+      <p className={styles.bodyText}>{ReactHtmlParser(bodyText)}</p>
       <div className={styles.btnWrapper}>{children}</div>
     </div>
   );
