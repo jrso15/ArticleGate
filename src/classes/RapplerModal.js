@@ -1,6 +1,7 @@
 import NormalGate from "./NormalGate.js";
 import MoveGate from "./MoveGate.js";
 import PlusGate from "./PlusGate.js";
+import NewsLetterGate from "./NewsLetterGate.js";
 
 const container = document.createElement("div");
 document.body.appendChild(container);
