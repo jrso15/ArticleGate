@@ -1,5 +1,5 @@
 .modalContainer {
-  background-color: #50558b;
+  background-color: rgb(24, 33, 58);
 
   .headerStyle {
     margin: 10px 0px 0px;
@@ -18,7 +18,7 @@
     font-family: TuskerGrotesk-6500Medium;
     width: 100%;
     display: block;
-    color: rgb(24, 33, 58);
+    color: #fff;
     margin: 0;
   }
 
@@ -27,9 +27,33 @@
   }
 
   .iconContainer {
-    width: 80px;
-    .logoImage {
+    display: none;
+  }
+
+  .topHeaderContainer {
+    p {
+      color: #f04f3c;
+      text-transform: uppercase;
+      margin: 0;
+      font-family: TuskerGrotesk-6500Medium;
+    }
+  }
+
+  .emailWrapper {
+    margin-top: 0;
+    .emailStyles {
       width: 100%;
+      margin: 10px auto;
+      height: 3.5em;
+      background-color: transparent;
+      padding: 0 10px;
+      border: 1px solid #f04f3c;
+      color: #f04f3c;
+      outline: none;
+      font-family: TuskerGrotesk-6500Medium;
+      &::-webkit-input-placeholder {
+        color: #f04f3c;
+      }
     }
   }
 
@@ -52,22 +76,37 @@
     -webkit-appearance: none;
   }
 
-  .btnLearnMore {
+  .btnSignUp {
     cursor: pointer;
     margin: 0 0 12px;
-    background-color: transparent;
+    background-color: rgb(240, 79, 60);
     border-color: transparent;
     color: #fff;
     border: 1px solid rgb(240, 79, 60);
     box-shadow: none;
     display: block;
     width: 100%;
-    height: 3em;
+    height: 3.5em;
     text-transform: uppercase;
     text-align: center;
-    color: #fff;
+    color: rgb(24, 33, 58);
     font-family: TuskerGrotesk-6500Medium;
     font-size: 0.75rem;
     -webkit-appearance: none;
+  }
+
+  .privacyPolicy {
+    margin-top: 30px;
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .topHeaderContainer {
+    margin: 0 auto;
   }
 }
