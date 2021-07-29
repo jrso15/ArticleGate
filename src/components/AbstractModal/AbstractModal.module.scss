@@ -37,6 +37,7 @@ body {
       width: 100%;
     }
   }
+
   .close {
     cursor: pointer;
     position: absolute;
@@ -132,4 +133,17 @@ body {
 
 .show {
   bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .modalContainer {
+    padding: 20px 20% 15px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .modalContainer {
+    padding: 20px 30% 15px;
+  }
 }
