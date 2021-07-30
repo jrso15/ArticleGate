@@ -84,7 +84,6 @@ const AbstractModal = ({
         >
           {privacyPolicy}
         </a>
-        .
       </p>
     </div>
   );

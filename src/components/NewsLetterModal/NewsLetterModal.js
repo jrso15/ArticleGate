@@ -58,7 +58,7 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
       showDismiss={dismissible}
       hasSubscribed={hasSubscribed}
       privacyText="By signing up, you agree to and acknowledge our"
-      privacyPolicy="Privacy Policy"
+      privacyPolicy="Privacy Policy."
     >
       <form onSubmit={handleSubmit}>
         <div className={styles.emailWrapper}>
