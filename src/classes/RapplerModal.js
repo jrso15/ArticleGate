@@ -22,6 +22,8 @@ class RapplerModal {
       o = new MoveGate(container, config);
     } else if (type === "plus") {
       o = new PlusGate(container, config);
+    } else if (type === "newsletter") {
+      o = new NewsLetterGate(container, config);
     } else {
       console.log("Unknown modal type");
       return;
