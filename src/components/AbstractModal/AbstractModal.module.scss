@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 1500px;
 }
 
 *,
@@ -36,6 +37,7 @@ body {
       width: 100%;
     }
   }
+
   .close {
     cursor: pointer;
     position: absolute;
@@ -127,8 +129,29 @@ body {
       -webkit-appearance: none;
     }
   }
+  .privacyPolicy {
+    margin-top: 30px;
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
 .show {
   bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .modalContainer {
+    padding: 20px 20% 15px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .modalContainer {
+    padding: 20px 30% 15px;
+  }
 }

@@ -1,6 +1,7 @@
 import NormalGate from "./NormalGate.js";
 import MoveGate from "./MoveGate.js";
 import PlusGate from "./PlusGate.js";
+import NewsLetterGate from "./NewsLetterGate.js";
 
 const container = document.createElement("div");
 document.body.appendChild(container);
@@ -21,6 +22,8 @@ class RapplerModal {
       o = new MoveGate(container, config);
     } else if (type === "plus") {
       o = new PlusGate(container, config);
+    } else if (type === "newsletter") {
+      o = new NewsLetterGate(container, config);
     } else {
       console.log("Unknown modal type");
       return;
