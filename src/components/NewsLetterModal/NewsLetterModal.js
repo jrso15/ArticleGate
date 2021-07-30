@@ -12,10 +12,7 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
 
     try {
       const response = await fetch(api);
-      console.log(response);
-
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
 
       return jsonResponse.status === "ok";
     } catch (err) {
@@ -29,11 +26,10 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
     const isSuccessful = await saveEmail(emailAddress);
     setHasSubscribed(isSuccessful);
 
-    // window.dataLayer.push({ event: "newsletter-modal-click" });
-    // window.deep.event({ "event.type": "newsletter-modal-click" });
+    window.dataLayer.push({ event: "newsletter-modal-click" });
+    window.deep.event({ "event.type": "newsletter-modal-click" });
 
-    // setDisplayModal(!displayModal);
-    document.body.style.overflowY = "";
+    setDisplayModal(!displayModal);
   };
 
   const handleChange = (e) => {
@@ -42,8 +38,8 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
 
   const handleDismiss = (e) => {
     if (dismissible) {
-      // window.dataLayer.push({ event: "newsletter-modal-dismiss" });
-      // window.deep.event({ "event.type": "newsletter-modal-dismiss" });
+      window.dataLayer.push({ event: "newsletter-modal-dismiss" });
+      window.deep.event({ "event.type": "newsletter-modal-dismiss" });
       setDisplayModal(!displayModal);
       document.body.style.overflowY = "";
     }
