@@ -26,8 +26,8 @@ class NewsLetterGate extends AbstractGate {
       />,
       this.container
     );
-    window.deep.event({ "event.type": "move-modal-render" });
-    window.dataLayer.push({ event: "move-modal-render" });
+    window.deep.event({ "event.type": "newsletter-modal-render" });
+    window.dataLayer.push({ event: "newsletter-modal-render" });
   }
 }
 
