@@ -16,7 +16,7 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
       // api returns {status:"ok", result:uniqueEmailID}
       // if result === "", email may be invalid or is already in the mailchimp audience
       // if result is not an empty string, email is valid and has been added to mailchimp audience
-      return jsonResponse.status === "ok" && jsonResponse.result != "";
+      return jsonResponse.status === "ok" && jsonResponse.result !== "";
     } catch (err) {
       console.log(`Error: ${err}`);
     }
