@@ -13,8 +13,10 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
     try {
       const response = await fetch(api);
       const jsonResponse = await response.json();
-
-      return jsonResponse.status === "ok";
+      // api returns {status:"ok", result:uniqueEmailID}
+      // if result === "", email may be invalid or is already in the mailchimp audience
+      // if result is not an empty string, email is valid and has been added to mailchimp audience
+      return jsonResponse.status === "ok" && jsonResponse.result != "";
     } catch (err) {
       console.log(`Error: ${err}`);
     }
@@ -22,12 +24,19 @@ const NewsLetterModal = ({ header, subheader, description, dismissible }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const isSuccessful = await saveEmail(emailAddress);
-    setHasSubscribed(isSuccessful);
-
     window.dataLayer.push({ event: "newsletter-modal-click" });
     window.deep.event({ "event.type": "newsletter-modal-click" });
+    const isSuccessful = await saveEmail(emailAddress);
+
+    setHasSubscribed(isSuccessful);
+
+    if (isSuccessful) {
+      window.dataLayer.push({ event: "newsletter-modal-success" });
+      window.deep.event({ "event.type": "newsletter-modal-success" });
+    } else {
+      window.dataLayer.push({ event: "newsletter-modal-failed" });
+      window.deep.event({ "event.type": "newsletter-modal-failed" });
+    }
 
     setDisplayModal(!displayModal);
   };
